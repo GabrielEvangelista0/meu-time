@@ -16,7 +16,7 @@ export const data = {
             alert(data.errors.token)
         } else {
             sessionStorage.setItem('key', key)
-            sessionStorage.setItem('coutries', JSON.stringify(data.response))
+            sessionStorage.setItem('countries', JSON.stringify(data.response))
             window.location.href = '/'
         }
 

@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    overflow-y: scroll;
+}
+
+.pagination{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
