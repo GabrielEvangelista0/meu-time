@@ -2,9 +2,6 @@ import { ChangeEvent, useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import styled from "styled-components"
 import Input from "../components/Input"
-import { Link } from "react-router-dom"
-import { useSetRecoilState } from "recoil"
-import { countriesState } from "../state/atom"
 import Table from "../components/Table/Table"
 
 export default function Home() {

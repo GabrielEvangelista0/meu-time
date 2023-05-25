@@ -36,7 +36,7 @@ export default function Table() {
                                 <img src={item.flag} alt="" />
                             </th>
                             <th>
-                                <Link to={'/'}>
+                                <Link to={`/${item.name}`}>
                                     {item.name}
                                 </Link>
                             </th>
