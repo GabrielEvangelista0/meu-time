@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import { ChangeEvent, useState } from 'react';
-import { data } from '../services/getData';
+import { getCountries } from '../services/getData';
 
 export default function Login() {
     const [inputValue, setInputValue] = useState<string>('')
@@ -14,7 +14,7 @@ export default function Login() {
             onSubmit={(e) => {
                 e.preventDefault()
                 console.log('Ola mundo');
-                data.getCountries(inputValue)
+                getCountries(inputValue)
             }}
         >
             <h1>Entrar</h1>
