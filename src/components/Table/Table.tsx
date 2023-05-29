@@ -64,13 +64,22 @@ const StyledTable = styled.table`
     height: 80vh;
     width: 70%;
     overflow: scroll;
+    border-collapse: collapse;
     img{
         width: 50px;
         border-radius: 10px;
     }
     th{
-        border: 1px solid black;
+        border-right: 1px solid black;
         padding: 1rem;
         text-align: justify;
+    }
+
+    thead:first-child{
+        background-color: #155288;
+    }
+
+    tr:nth-child(2n + 2){
+        background-color: gray;
     }
 `

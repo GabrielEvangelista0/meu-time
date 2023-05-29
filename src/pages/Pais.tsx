@@ -1,40 +1,60 @@
 import { useParams } from "react-router-dom";
 import { getLeaguesFromContry } from "../services/getData";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+interface League {
+  league: {
+    name: string;
+    logo: string;
+    type: string;
+    id: number;
+  };
+  country: {
+    code: string;
+    flag: string;
+    name: string;
+  }
+}
 
 export default function Pais() {
-    const key = sessionStorage.getItem('key') ?? '';
-    const params = useParams();
-    const country = params.id ?? '';
-    const countryData = JSON.parse(sessionStorage.getItem(country?.toLocaleLowerCase()) || '{}');
-    console.log(countryData);
+  const key = sessionStorage.getItem("key") ?? "";
+  const params = useParams();
+  const country = params.id ?? "";
+  const countrySessionStorage = sessionStorage.getItem(
+    country?.toLocaleLowerCase()
+  );
+  const [countryData, setCountryData] = useState<League[]>([]);
 
-    useEffect(() => {
-        //getLeague(key)
-        if (sessionStorage.getItem(country?.toLocaleLowerCase()) == null) {
-            getLeaguesFromContry(key, country?.toLocaleLowerCase());
-        }
-    }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      if (countrySessionStorage === null) {
+        const data = await getLeaguesFromContry(
+          key,
+          country?.toLocaleLowerCase()
+        );
+        setCountryData(data);
+      } else {
+        setCountryData(JSON.parse(countrySessionStorage || "[]"));
+      }
+    };
 
-    return (
-        <>
+    fetchData();
+  }, [key, country, countrySessionStorage]);
 
-            <h1>{country}</h1>
-            <section>
-                <h2>
-                    Todas as Competições
-                </h2>
-                <ul>
-                    {countryData.map((item: typeof countryData, index: number) => (
-                        <li key={index}>
-                            <h3>
-                                {item.league.name}
-                            </h3>
-                        </li>
-                    ))}
-                </ul>
-            </section>
-
-        </>
-    )
+  return (
+    <>
+      <h1>{country}</h1>
+      <section>
+        <h2>Todas as Competições</h2>
+        <ul>
+          {countryData.map((item, index) => (
+            <li key={index}>
+                <img src={item.league.logo} alt="" />
+              <h3>{item.league.name}</h3>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
 }

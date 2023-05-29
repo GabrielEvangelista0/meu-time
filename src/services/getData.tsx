@@ -37,6 +37,7 @@ export async function getLeaguesFromContry (key: string, country: string) {
         const data = await res.json();
         sessionStorage.setItem(`${country}`, JSON.stringify(data.response))
         console.log(data);
+        return data.response
     } catch (error) {
         console.error(error);
     }
