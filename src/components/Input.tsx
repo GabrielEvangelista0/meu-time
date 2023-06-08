@@ -27,15 +27,21 @@ Input.defaultProps = {
 const StyledInput = styled('input') <{ width: string }>`
 
     width: ${p => p.width};
+    color: var(--font);
     padding: 1rem;
-    border: 2px solid #262639d2;
+    border: none;
+    border-bottom: 2px solid var(--font);
+    background-color: transparent;
     outline: none;
     box-shadow: none;
-    border-radius: 5px;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    
+    &::placeholder{
+        color: var(--font);
+    }
 
     &:focus{
-        border: 3px solid navy;
+        border-bottom: 2px solid var(--primaryColor);
     }
 
 `

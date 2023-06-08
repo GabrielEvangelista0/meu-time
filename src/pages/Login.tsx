@@ -20,11 +20,12 @@ export default function Login() {
             <h1>Entrar</h1>
             <form>
                 <Input
+                    width='60%'
                     placeholder='Escreva Sua chave'
                     onChange={handleChange}
                 />
                 <Button width='50%'>Entrar</Button>
-                <a href="https://dashboard.api-football.com/" target="_blank">Cadastrar chave da api</a>
+                <a href="https://dashboard.api-football.com/" target="_blank" rel="noreferrer">Buscar chave da api</a>
             </form>
         </StyledLogin>
     )
@@ -38,9 +39,14 @@ const StyledLogin = styled.main`
     align-items: center;
     justify-content: center;
 
+    h1{
+       color: var(--background);
+    }
+
     form{
-        background-color: red;
         border-radius:20px;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 3px 2px 15px rgba(0, 0, 0, 0.3);
         width: 50%;
         height: 400px;
         padding: 2rem;
@@ -49,7 +55,8 @@ const StyledLogin = styled.main`
         justify-content: space-evenly;
         align-items: center;
         a{
-            color: white;
+            color: var(--primaryColor);
+            font-weight: bold;
             &:hover{
                 text-decoration: underline;
             }

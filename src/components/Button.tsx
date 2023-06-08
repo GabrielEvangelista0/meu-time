@@ -16,17 +16,19 @@ export default function Button({children, width}: Props){
 
 const StyledButton = styled('button')<{width: string}>`
 
-    background-color: blue;
-    padding: 0.5rem;
+    background-color: transparent;
+    border: 2px solid var(--primaryColor);
+    padding: 1rem;
     font-size: 1rem;
-    color: white;
-    border: none;
+    font-weight: bold;
+    color: var(--font);
     border-radius: 10px;
     width: ${p => p.width};
     transition: 300ms;
 
     &:hover{
-        background-color: green;
+        background-color: var(--primaryColor);
+        color: var(--background);
     }
 
 `
