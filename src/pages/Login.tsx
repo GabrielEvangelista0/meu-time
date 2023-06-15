@@ -47,7 +47,7 @@ const StyledLogin = styled.main`
         border-radius:20px;
         background-color: rgba(255, 255, 255, 0.7);
         border: 2px solid white;
-        box-shadow: 3px 2px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 3px 2px 15px 5px rgba(0, 0, 0, 0.3);
         width: 50%;
         height: 400px;
         padding: 2rem;
